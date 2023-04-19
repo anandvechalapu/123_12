@@ -1,28 +1,33 @@
 package com.testsdfsdf.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name="opportunity")
+@Table(name = "opportunities")
 public class Opportunity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "account_id")
     private Long accountId;
-    private String name;
+
+    @Column(name = "created_date")
+    private Date createdDate;
+
+    @Column(name = "stage")
     private String stage;
-    private LocalDateTime createdDate;
-    
-    public Opportunity() {
-        
-    }
+
+    @Column(name = "old_value")
+    private String oldValue;
+
+    @Column(name = "new_value")
+    private String newValue;
+
+    @Column(name = "timestamp")
+    private Date timestamp;
 
     public Long getId() {
         return id;
@@ -40,12 +45,12 @@ public class Opportunity {
         this.accountId = accountId;
     }
 
-    public String getName() {
-        return name;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public String getStage() {
@@ -56,12 +61,27 @@ public class Opportunity {
         this.stage = stage;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
+    public String getOldValue() {
+        return oldValue;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
     }
 
+    public String getNewValue() {
+        return newValue;
+    }
+
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 }
